@@ -1,3 +1,4 @@
+```
 server01:sdcio-demo$ go run . -h
 NAME:
    sdcio-demo - A new cli application
@@ -27,3 +28,4 @@ GLOBAL OPTIONS:
    -3, --destroy_basic_usage     destroy basic usage (default: false)
    -4, --destroy_environment     destroy environment (default: false)
    --help, -h                    show help
+```
