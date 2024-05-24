@@ -24,6 +24,6 @@ GLOBAL OPTIONS:
    -0, --setup_environment       setup environment (default: false)
    -1, --install_sdcio           installing sdcio (default: false)
    -2, --basic_usage             basic usage demo (default: false)
-   -3, --basic_usage_destroy     destroy basic usage (default: false)
+   -3, --destroy_basic_usage     destroy basic usage (default: false)
    -4, --destroy_environment     destroy environment (default: false)
    --help, -h                    show help
