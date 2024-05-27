@@ -13,6 +13,7 @@ spec:
       value:
         interface:
           - name: ethernet-1/5
+            description: Config03
             admin-state: disable
             mtu: 1500
             vlan-tagging: false
