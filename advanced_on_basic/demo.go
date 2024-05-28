@@ -16,7 +16,7 @@ func Demo() *lib.Run {
 
 	r.Step(
 		lib.S("Apply ethernet config"),
-		lib.S("curl -fsSL https://raw.githubusercontent.com/sdcio/sdcio-demo/main/advanced_on_basic/config01_advanced.yaml ;",
+		lib.S("curl -fsSL https://raw.githubusercontent.com/sdcio/sdcio-demo/main/advanced_on_basic/config01_advanced.yaml ; ",
 			"kubectl apply -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/advanced_on_basic/config01_advanced.yaml",
 		),
 	)
@@ -42,7 +42,7 @@ func Destroy() *lib.Run {
 			"Destroy advanced_usage",
 		),
 		lib.S(
-			"kubectl delete -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/advanced_on_basic/config01_advanced.yaml ;",
+			"kubectl delete -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/advanced_on_basic/config01_advanced.yaml ; ",
 		),
 	)
 	return r
