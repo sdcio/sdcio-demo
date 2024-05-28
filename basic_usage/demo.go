@@ -95,7 +95,7 @@ func Demo() *lib.Run {
 
 	r.Step(
 		lib.S("Verify config CR status"),
-		lib.S("kubectl describe configs.config.sdcio.dev test"),
+		lib.S("kubectl describe configs.config.sdcio.dev dev1-myserviceinterface"),
 	)
 
 	r.Step(
@@ -129,9 +129,10 @@ func Destroy() *lib.Run {
 			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/config.yaml ;",
 			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/discovery_address.yaml ;",
 			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/secret-srl.yaml ;",
-			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/target-sync-profile-gnmi.yaml ; ",
-			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/target-conn-profile-gnmi.yaml ; ",
-			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/schema-nokia-srl-23.10.1.yaml",
+			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/target-sync-profile-gnmi.yaml ;",
+			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/target-conn-profile-gnmi.yaml ;",
+			"kubectl delete -f https://docs.sdcio.dev/artifacts/basic-usage/schema-nokia-srl-23.10.1.yaml ;",
+			"kubectl delete -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config01.yaml ;",
 		),
 	)
 	return r
