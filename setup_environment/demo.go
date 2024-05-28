@@ -67,7 +67,7 @@ func Destroy() *lib.Run {
 	r.Step(
 		lib.S("Destroy Containerlab topology"),
 		lib.S(
-			"curl https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml ; ",
+			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml ; ",
 			"sudo containerlab destroy -t https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml --cleanup",
 		),
 	)

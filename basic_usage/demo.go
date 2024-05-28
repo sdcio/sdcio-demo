@@ -12,7 +12,7 @@ func Demo() *lib.Run {
 	r.Step(
 		lib.S("Nokia SR Linux Yang Schema"),
 		lib.S(
-			"curl https://docs.sdcio.dev/artifacts/basic-usage/schema-nokia-srl-23.10.1.yaml | yq ;",
+			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/schema-nokia-srl-23.10.1.yaml | yq ;",
 			"kubectl apply -f https://docs.sdcio.dev/artifacts/basic-usage/schema-nokia-srl-23.10.1.yaml",
 		),
 	)
@@ -20,7 +20,7 @@ func Demo() *lib.Run {
 	r.Step(
 		lib.S("Connection Profile"),
 		lib.S(
-			"curl https://docs.sdcio.dev/artifacts/basic-usage/target-conn-profile-gnmi.yaml | yq ;",
+			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/target-conn-profile-gnmi.yaml | yq ;",
 			"kubectl apply -f https://docs.sdcio.dev/artifacts/basic-usage/target-conn-profile-gnmi.yaml",
 		),
 	)
@@ -28,7 +28,7 @@ func Demo() *lib.Run {
 	r.Step(
 		lib.S("Sync Profile"),
 		lib.S(
-			"curl https://docs.sdcio.dev/artifacts/basic-usage/target-sync-profile-gnmi.yaml | yq ;",
+			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/target-sync-profile-gnmi.yaml | yq ;",
 			"kubectl apply -f https://docs.sdcio.dev/artifacts/basic-usage/target-sync-profile-gnmi.yaml",
 		),
 	)
@@ -36,7 +36,7 @@ func Demo() *lib.Run {
 	r.Step(
 		lib.S("SRL Secret"),
 		lib.S(
-			"curl https://docs.sdcio.dev/artifacts/basic-usage/secret-srl.yaml | yq ; ",
+			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/secret-srl.yaml | yq ; ",
 			"kubectl apply -f https://docs.sdcio.dev/artifacts/basic-usage/secret-srl.yaml",
 		),
 	)
@@ -44,7 +44,7 @@ func Demo() *lib.Run {
 	r.Step(
 		lib.S("Discovery Rule"),
 		lib.S(
-			"curl https://docs.sdcio.dev/artifacts/basic-usage/discovery_address.yaml | yq ; ",
+			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/discovery_address.yaml | yq ; ",
 			"kubectl apply -f https://docs.sdcio.dev/artifacts/basic-usage/discovery_address.yaml",
 		),
 	)
@@ -71,7 +71,7 @@ func Demo() *lib.Run {
 
 	r.Step(
 		lib.S("Apply Config"),
-		lib.S("curl https://docs.sdcio.dev/artifacts/basic-usage/config.yaml ;",
+		lib.S("curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/config.yaml ;",
 			"kubectl apply -f https://docs.sdcio.dev/artifacts/basic-usage/config.yaml",
 		),
 	)
@@ -88,7 +88,7 @@ func Demo() *lib.Run {
 
 	r.Step(
 		lib.S("Apply ethernet config"),
-		lib.S("curl https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config01.yaml ;",
+		lib.S("curl -fsSL https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config01.yaml ;",
 			"kubectl apply -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config01.yaml",
 		),
 	)
@@ -105,7 +105,7 @@ func Demo() *lib.Run {
 
 	r.Step(
 		lib.S("Changing the intent to ethernet-1/5"),
-		lib.S("curl https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config02.yaml ;",
+		lib.S("curl -fsSL https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config02.yaml ;",
 			"kubectl apply -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config02.yaml",
 		),
 	)
