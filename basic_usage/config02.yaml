@@ -1,18 +1,19 @@
 apiVersion: config.sdcio.dev/v1alpha1
 kind: Config
 metadata:
-  name: Config02
+  name: Config01
   namespace: default
   labels:
     config.sdcio.dev/targetName: dev1
     config.sdcio.dev/targetNamespace: default
 spec:
-  priority: 20
+  priority: 10
   config:
     - path: /
       value:
         interface:
           - name: ethernet-1/5
-            admin-state: disable
+            description: MyServiceInterface
+            admin-state: enable
             mtu: 1500
             vlan-tagging: true

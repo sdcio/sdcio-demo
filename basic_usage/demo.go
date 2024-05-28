@@ -87,24 +87,27 @@ func Demo() *lib.Run {
 	)
 
 	r.Step(
-		lib.S("Apply Config"),
+		lib.S("Apply ethernet config"),
 		lib.S("curl https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config01.yaml ;",
 			"kubectl apply -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config01.yaml",
 		),
 	)
 
 	r.Step(
-		lib.S("Apply Config"),
+		lib.S("Verify interface config is applied on device"),
+		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet-1/*"),
+	)
+
+	r.Step(
+		lib.S("Changing the intent to ethernet-1/5"),
 		lib.S("curl https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config02.yaml ;",
 			"kubectl apply -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config02.yaml",
 		),
 	)
 
 	r.Step(
-		lib.S("Apply Config"),
-		lib.S("curl https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config03.yaml ;",
-			"kubectl apply -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config03.yaml",
-		),
+		lib.S("Verify interface config is applied on device"),
+		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet-1/*"),
 	)
 
 	return r
