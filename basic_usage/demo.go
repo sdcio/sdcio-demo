@@ -94,6 +94,11 @@ func Demo() *lib.Run {
 	)
 
 	r.Step(
+		lib.S("Verify config CR status"),
+		lib.S("kubectl describe configs.config.sdcio.dev test"),
+	)
+
+	r.Step(
 		lib.S("Verify interface config is applied on device"),
 		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet-1/*"),
 	)

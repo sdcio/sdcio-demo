@@ -1,7 +1,7 @@
 apiVersion: config.sdcio.dev/v1alpha1
 kind: Config
 metadata:
-  name: Config01
+  name: dev1-myserviceinterface
   namespace: default
   labels:
     config.sdcio.dev/targetName: dev1
