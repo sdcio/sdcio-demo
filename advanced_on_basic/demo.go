@@ -1,4 +1,4 @@
-package basic_usage
+package advanced_on_basic
 
 import lib "github.com/saschagrunert/demo"
 
@@ -11,7 +11,7 @@ func Demo() *lib.Run {
 
 	r.Step(
 		lib.S("Verify interface config on device"),
-		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet/*"),
+		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet-1/*"),
 	)
 
 	r.Step(
