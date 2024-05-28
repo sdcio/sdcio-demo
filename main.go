@@ -17,7 +17,7 @@ func main() {
 	d.Add(install_sdcio.Demo(), "install_sdcio", "installing sdcio")
 	d.Add(basic_usage.Demo(), "basic_usage", "basic usage demo")
 	d.Add(advanced_on_basic.Demo(), "advanced_on_basic", "advanced on basic demo")
-	d.Add(advanced_on_basic.Destroy(), "destroy_advanced_on_basic", "destroy advanced on basic")
+	// d.Add(advanced_on_basic.Destroy(), "destroy_advanced_on_basic", "destroy advanced on basic")
 	d.Add(basic_usage.Destroy(), "destroy_basic_usage", "destroy basic usage")
 	d.Add(setup_environment.Destroy(), "destroy_environment", "destroy environment")
 

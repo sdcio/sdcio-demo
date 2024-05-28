@@ -43,6 +43,18 @@ func Demo() *lib.Run {
 		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet-1/*"),
 	)
 
+	r.Step(
+		lib.S("Delete high precedence intent"),
+		lib.S("curl -fsSL https://raw.githubusercontent.com/sdcio/sdcio-demo/main/advanced_on_basic/config02_advanced.yaml ; ",
+			"kubectl delete -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/advanced_on_basic/config02_advanced.yaml",
+		),
+	)
+
+	r.Step(
+		lib.S("Verify initial config is again applied on device"),
+		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet-1/*"),
+	)
+
 	return r
 }
 
