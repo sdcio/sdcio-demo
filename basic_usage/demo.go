@@ -55,22 +55,17 @@ func Demo() *lib.Run {
 	)
 
 	r.Step(
-		lib.S("Verify SDCIO objects"),
-		lib.S("kubectl get sdc"),
-	)
-
-	r.Step(
-		lib.S("Retrieve running config"),
+		lib.S("Retrieve running config of dev1"),
 		lib.S("kubectl get runningconfigs.config.sdcio.dev dev1 -o yaml | yq"),
 	)
 
 	r.Step(
-		lib.S("Verify interface system0 is not present"),
+		lib.S("Show interface system0 is not present"),
 		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface system0"),
 	)
 
 	r.Step(
-		lib.S("Apply Config"),
+		lib.S("Apply system0 interface config"),
 		lib.S("curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/config.yaml ;",
 			"kubectl apply -f https://docs.sdcio.dev/artifacts/basic-usage/config.yaml",
 		),
@@ -87,7 +82,7 @@ func Demo() *lib.Run {
 	)
 
 	r.Step(
-		lib.S("Apply ethernet config"),
+		lib.S("Apply ethernet-1/4 config"),
 		lib.S("curl -fsSL https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config01.yaml ;",
 			"kubectl apply -f https://raw.githubusercontent.com/sdcio/sdcio-demo/main/basic_usage/config01.yaml",
 		),
@@ -99,7 +94,7 @@ func Demo() *lib.Run {
 	)
 
 	r.Step(
-		lib.S("Verify interface config is applied on device"),
+		lib.S("Verify interface ethernet-1/4 config is applied on device"),
 		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet-1/*"),
 	)
 
@@ -111,7 +106,7 @@ func Demo() *lib.Run {
 	)
 
 	r.Step(
-		lib.S("Verify interface config is applied on device"),
+		lib.S("Verify interface ethernet-1/5 config is applied and interface ethernet-1/4 is gone"),
 		lib.S("docker exec clab-basic-usage-dev1 sr_cli -- info from running interface ethernet-1/*"),
 	)
 

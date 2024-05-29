@@ -11,20 +11,8 @@ func Demo() *lib.Run {
 
 	// setup kind cluster
 	r.Step(
-		lib.S("create k8s kind cluster"),
+		lib.S("Create k8s kind cluster"),
 		lib.S("kind create cluster"),
-	)
-
-	// setup iptables rules
-	r.Step(
-		lib.S("Allow the kind cluster to communicate with the later created containerlab topology"),
-		lib.S("sudo iptables -I DOCKER-USER -o br-$(docker network inspect -f '{{ printf \"%.12s\" .ID }}' kind) -j ACCEPT"),
-	)
-
-	// Deploy Containerlab Topo
-	r.Step(
-		lib.S("Deploy Containerlab topology"),
-		lib.S("sudo containerlab deploy -t https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml --reconfigure"),
 	)
 
 	// Install CertManager
@@ -33,11 +21,25 @@ func Demo() *lib.Run {
 		lib.S("kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.yaml"),
 	)
 
+	// Deploy Containerlab Topo
+	r.Step(
+		lib.S("Deploy Containerlab topology"),
+		lib.S(
+			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml",
+			"sudo containerlab deploy --reconfigure -t https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml",
+		),
+	)
+
+	// setup iptables rules
+	r.Step(
+		lib.S("Allow the kind cluster to communicate with the later created containerlab topology"),
+		lib.S("sudo iptables -I DOCKER-USER -o br-$(docker network inspect -f '{{ printf \"%.12s\" .ID }}' kind) -j ACCEPT"),
+	)
+
 	// Wait for CertManager
 	r.Step(
 		lib.S(
-			"If the SDCIO resources, see below are being applied to fast, the webhook of the cert-manager is not already there.",
-			"Hence we need to wait for the resource be become Available",
+			"If the SDCIO relies on certmanager, hence wait for certmanager to become healthy",
 		),
 		lib.S("kubectl wait -n cert-manager --for=condition=Available=True --timeout=300s deployments.apps cert-manager-webhook"),
 	)
