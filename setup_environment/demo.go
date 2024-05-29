@@ -25,7 +25,7 @@ func Demo() *lib.Run {
 	r.Step(
 		lib.S("Deploy Containerlab topology"),
 		lib.S(
-			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml",
+			"curl -fsSL https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml ; ",
 			"sudo containerlab deploy --reconfigure -t https://docs.sdcio.dev/artifacts/basic-usage/basic-usage.clab.yaml",
 		),
 	)
