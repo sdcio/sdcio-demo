@@ -32,7 +32,7 @@ func Demo() *lib.Run {
 
 	// setup iptables rules
 	r.Step(
-		lib.S("Allow the kind cluster to communicate with the later created containerlab topology"),
+		lib.S("Allow the kind cluster to communicate with the containerlab topology"),
 		lib.S("sudo iptables -I DOCKER-USER -o br-$(docker network inspect -f '{{ printf \"%.12s\" .ID }}' kind) -j ACCEPT"),
 	)
 
